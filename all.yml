@@ -1,0 +1,8 @@
+#change the user name for installing the service
+#for example: application_user: http
+application_user:
+
+#provide application_user HOME directory (user home directory and application deployment path should be same)
+#(for example: if user money is created under /home/ path then home path and deployment path should be /home/money)
+#for example: deployment_base_path: /home/http
+deployment_base_path:
