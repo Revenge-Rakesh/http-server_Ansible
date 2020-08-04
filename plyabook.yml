@@ -1,0 +1,17 @@
+---
+- name: "Ensure user to run application exists"
+  user: name={{ application_user }} state=present
+  become: yes
+
+- name: "Ensure deployment directory exists"
+  file: path={{ deployment_path }} owner={{ application_user }} state=directory
+  become: yes
+
+- name: "Shipping docker file"
+  template: src="docker-compose.yml" dest="{{ deployment_path }}/" owner={{ application_user }}
+  become: yes
+
+- name: "Run the docker compose command"
+  command: docker-compose -f docker-compose.yml
+  become: yes
+
