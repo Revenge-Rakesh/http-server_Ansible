@@ -1,0 +1,4 @@
+- hosts: http
+  gather_facts: no
+  roles:
+    - { role: http, tags: ['http'] }
